@@ -23,11 +23,9 @@ function removeDom(element) {
 
 function render(book) {
   awesomeBooks.innerHTML += `
-      <li id="${book.id}">
-        <h3>${book.title}</h3>
-        <h4>${book.author}</h4>
+      <li class="entry" id="${book.id}">
+        <p>"${book.title}" by ${book.author}</p>
         <button class="btn">Remove</button>
-        <hr>  
       </li>
     
       `;
