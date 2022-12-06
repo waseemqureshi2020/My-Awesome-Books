@@ -1,22 +1,12 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input {
-  width: 50vw;
-  max-width: 300px;
-  margin-bottom: 15px;
-}
-
-.add-btn {
-  width: 100px;
-  height: 35px;
-}
+#error {
+    color: red;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }

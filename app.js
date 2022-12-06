@@ -1,36 +1,71 @@
 let books = [];
 
-const addBook = (titl, autho) => {
-	let temp = {
-		title: titl,
-		author: autho
-	};
+const awesomeBooks = document.getElementById('awesomeBooks');
 
-	books.push(temp);
-};
+function updateLocalstorage() {
+  localStorage.setItem('bookLibrary', JSON.stringify(books));
+}
 
-const removeBook = (i) => {
-	books.splice(i, 1);
-};
+function remove(id) {
+  books = books.filter((book) => book.id !== id);
+  updateLocalstorage();
+}
 
-const showBooks = () => {
-	const bookContainer = document.querySelector('.book-container');
+function removeDom(element) {
+  element.querySelectorAll('.btn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      const parent = e.target.parentNode;
+      remove(parent.id);
+      parent.remove();
+    });
+  });
+}
 
-	for (let i = 0; i < books.length; i += 1) {
-    bookContainer.innerHTML += `
-      <p>${books[i].title}</p>
-      <p>${books[i].author}</p>
-      <button id="${i}" class="remBtn" type='button'>Remove</button>
-      <hr>
-    `;
+function render(book) {
+  awesomeBooks.innerHTML += `
+      <li id="${book.id}">
+        <h3>${book.title}</h3>
+        <h4>${book.author}</h4>
+        <button class="btn">Remove</button>
+        <hr>  
+      </li>
+    
+      `;
+  removeDom(awesomeBooks);
+}
+
+function add(book) {
+  render(book);
+  books.push(book);
+  removeDom(awesomeBooks);
+  updateLocalstorage();
+}
+
+document.querySelector('form').onsubmit = (e) => {
+  e.preventDefault();
+  const error = document.getElementById('error');
+  const { title, author } = e.target;
+  if (title.value.length < 1 || author.value.length < 1) {
+    error.innerHTML = 'input filed must not be empty';
+    setTimeout(() => {
+      error.innerHTML = '';
+    }, 3000);
+  } else {
+    error.innerHTML = '';
+    add({
+      id: Date.now().toString(),
+      title: title.value,
+      author: author.value,
+    });
+    title.value = '';
+    author.value = '';
   }
 };
 
-const addBtn = document.querySelector('.add-btn');
-addBtn.addEventListener('click', () => {
-	const tInp = document.querySelector('.title-inp').value;
-  const aInp = document.querySelector('.author-inp').value;
-  addBook(tInp, aInp);
+if (localStorage.getItem('bookLibrary')) {
+  books = JSON.parse(localStorage.getItem('bookLibrary'));
+} else {
+  localStorage.setItem('bookLibrary', JSON.stringify([]));
+}
 
-	showBooks();
-});
+books.forEach((book) => render(book));
