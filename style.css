@@ -1,13 +1,89 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-#error {
-  color: red;
+body {
+  color: black;
 }
 
 ul {
   list-style-type: none;
+}
+
+li {
+  padding: 7px;
   margin: 0;
-  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li:hover {
+  background-color: #52545a;
+}
+
+.title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+#awesomeBooks {
+  border: 2px solid black;
+  margin: 0 5%;
+}
+
+#awesomeBooks li:nth-child(odd) {
+  background-color: rgb(173, 170, 170);
+}
+
+p {
+  font-weight: bold;
+}
+
+li .btn {
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+hr {
+  width: 120px;
+  margin: 30px auto;
+  border: 1px solid black;
+}
+
+.form-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.form-section h2 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+form input {
+  width: 100%;
+  height: 25px;
+  padding-left: 6px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-btn {
+  text-align: right;
+}
+
+.form-btn button {
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#error {
+  color: red;
 }
