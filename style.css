@@ -1,13 +1,220 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.date {
+  text-align: right;
+  padding: 20px;
+}
+
+#list {
+  color: rgb(241, 43, 43);
+}
+
+body {
+  color: #000;
+}
+
+h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+header {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px;
+  margin: 5px;
+}
+
+header .logo a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header ul {
+  display: flex;
+  list-style-type: none;
+}
+
+header ul li {
+  border-right: 2px solid black;
+  font-size: 16px;
+  padding: 7px;
+  margin: 0;
+  cursor: pointer;
+}
+
+header ul #contact-page {
+  border-right: none;
+}
+
+main {
+  width: 100%;
+  margin: auto;
+}
+
+.section {
+  margin: 100px  0 50px;
+  padding: 20px;
+}
+
+.contact {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.contact-list {
+  padding-left: 40px;
+  margin-top: 15px;
+}
+
+footer p {
+  text-align: center;
+}
+
+#contactpage p {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  margin: 17px 0;
+}
+
+#awesomeBooks {
+  border: 2px solid black;
+  margin: 10px;
+}
+
+#awesomeBooks ul {
+  list-style-type: none;
+}
+
+#awesomeBooks li {
+  padding: 7px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#awesomeBooks li:nth-child(odd) {
+  background-color: rgb(173, 170, 170);
+}
+
+#awesomeBooks li:hover {
+  background-color: #52545a;
+}
+
+#awesomeBooks li p {
+  font-weight: bold;
+}
+
+#awesomeBooks li .btn {
+  display: block;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+}
+
+.form-section {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 40px auto;
+}
+
+form {
+  width: 100%;
+}
+
+form input {
+  width: 100%;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+form input:hover {
+  background-color: #f4f5f7;
+}
+
+.form-btn {
+  text-align: right;
+}
+
+.form-btn button {
+  padding: 6px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 1px solid #d3d3d3;
+  box-shadow: 2px 2px 1px #d3d3d3;
+  margin-right: 5px;
+  margin-bottom: 26px;
 }
 
 #error {
-  color: red;
+  color: rgb(241, 43, 43);
+  width: 50%;
+  margin: auto;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.hiden {
+  display: none;
+}
+
+footer {
+  position: relative;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 7px 80px;
+  }
+
+  header .logo a {
+    font-size: 25px;
+  }
+
+  header ul li {
+    padding: 7px 35px;
+  }
+
+  header ul #contact-page {
+    border-right: none;
+  }
+
+  .section {
+    width: 600px;
+    margin: 100px auto;
+  }
+
+  .contact {
+    width: 500px;
+  }
+
+  .contact-list {
+    text-align: left;
+    padding-left: 70px;
+    margin-top: 40px;
+    line-height: 1.5;
+  }
 }
