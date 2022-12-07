@@ -7,7 +7,7 @@ class Book {
   }
 
   updateLocalstorage() {
-    localStorage.setItem('bookLibrary', JSON.stringify(this.books));
+    localStorage.setItem('bokLibrarie', JSON.stringify(this.books));
   }
 
   remove(id) {
@@ -30,8 +30,7 @@ class Book {
     <li id="${book.id}">
     <p>"${book.title}" by ${book.author}.</p>
     <button class="btn">Remove</button>
-    </li>
-      
+</li>
         `;
     this.removeDom(awesomeBooks);
   }
@@ -67,10 +66,69 @@ document.querySelector('form').onsubmit = (e) => {
   }
 };
 
-if (localStorage.getItem('bookLibrary')) {
-  library.books = JSON.parse(localStorage.getItem('bookLibrary'));
+if (localStorage.getItem('bokLibrarie')) {
+  library.books = JSON.parse(localStorage.getItem('bokLibrarie'));
 } else {
-  localStorage.setItem('bookLibrary', JSON.stringify([]));
+  localStorage.setItem('bokLibrarie', JSON.stringify([]));
 }
+
+const list = [
+  {
+    linkId: 'list',
+    pageId: 'listpage',
+  },
+  {
+    linkId: 'add-new',
+    pageId: 'addpage',
+  },
+  {
+    linkId: 'contact-page',
+    pageId: 'contactpage',
+  },
+];
+
+list.forEach((item, index) => {
+  const link = document.getElementById(item.linkId);
+  const page = document.getElementById(item.pageId);
+
+  link.onclick = () => {
+    if (index === 1) {
+      link.style.color = 'rgb(241, 43, 43)';
+      link.previousElementSibling.style.color = '#000';
+      link.nextElementSibling.style.color = '#000';
+      page.classList.remove('hiden');
+      page.previousElementSibling.classList.add('hiden');
+      page.nextElementSibling.classList.add('hiden');
+    } else if (index === 0) {
+      link.style.color = 'rgb(241, 43, 43)';
+      link.nextElementSibling.style.color = '#000';
+      link.nextElementSibling.nextElementSibling.style.color = '#000';
+      page.classList.remove('hiden');
+      page.nextElementSibling.classList.add('hiden');
+      page.nextElementSibling.nextElementSibling.classList.add('hiden');
+    } else {
+      link.style.color = 'rgb(241, 43, 43)';
+      link.previousElementSibling.style.color = '#000';
+      link.previousElementSibling.previousElementSibling.style.color = '#000';
+      page.classList.remove('hiden');
+      page.previousElementSibling.classList.add('hiden');
+      page.previousElementSibling.previousElementSibling.classList.add('hiden');
+    }
+  };
+});
+
+setInterval(() => {
+  const date = document.querySelector('.date');
+  const d = new Date();
+  const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+  const month = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
+  const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+  const hour = d.getHours();
+  const minute = d.getMinutes();
+  const second = d.getSeconds();
+  const ampm = hour >= 12 ? 'pm' : 'am';
+
+  date.innerHTML = `${month} ${day}th ${year}, ${hour}:${minute}:${second} ${ampm}`;
+}, 1000);
 
 library.books.forEach((book) => library.render(book));
