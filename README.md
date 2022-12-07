@@ -95,9 +95,9 @@ Example command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[New And Improved UI]**
+- [ ] **[Profile Section]**
+- [ ] **[Dark Mode]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
